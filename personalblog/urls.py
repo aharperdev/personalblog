@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from blog import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", views.PostListViews.as_view(), name="index"),
+
     path("martor/", include("martor.urls")),
+    path("__reload__/", include("django_browser_reload.urls")),
 ]

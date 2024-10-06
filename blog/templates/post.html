@@ -1,0 +1,9 @@
+{% extends "base_blog.html" %}
+
+{% block content %}
+<div class="container prose">
+    <h1 class="text-white">{{ post.title }}</h1>
+    <p class="text-gray-400">{{ post.created }}</p>
+    <p class="text-white">{{ post.content }}</p>
+</div>
+{% endblock %}

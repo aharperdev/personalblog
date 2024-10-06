@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load martortags %}
+{% block content %}
+    <div class="flex justify-center p-5 mx-auto w-full">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="container bg-gray-300 rounded mb-5 p-5 prose">
+                    <p>{{ post.date_posted|date:"F d, Y" }}</p>
+                    {{ post.content|safe_markdown }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="container prose">
+                <h1 class="text-white
+                ">No posts found</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
