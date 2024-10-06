@@ -14,3 +14,7 @@ class PostListViews(generic.ListView):
     model = Post
     context_object_name = "posts"
     template_name = "index.html"
+
+class PostDetailViews(generic.DetailView):
+    model = Post
+    template_name = "post.html"

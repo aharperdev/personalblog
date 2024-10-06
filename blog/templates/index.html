@@ -5,10 +5,11 @@
     <div class="flex justify-center p-5 mx-auto w-full">
         {% if posts %}
             {% for post in posts %}
-                <div class="container bg-gray-300 rounded mb-5 p-5 prose">
-                    <p>{{ post.date_posted|date:"F d, Y" }}</p>
-                    {{ post.content|safe_markdown }}
-                </div>
+                <a href="{% url 'post' post.id %}"
+                    class="container rounded mb-5 p-5 prose prose-invert hover:bg-gray-700 cursor-pointer">
+                    <p class="m-0 mb-1 text-sm">{{ post.date_posted|date:"F d, Y" }}</p>
+                    <h2 class="m-0">{{ post.title }}</h2>
+                </a>
             {% endfor %}
         {% else %}
             <div class="container prose">

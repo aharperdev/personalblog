@@ -21,6 +21,7 @@ from blog import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.PostListViews.as_view(), name="index"),
+    path("post/<int:pk>/", views.PostDetailViews.as_view(), name="post"),
 
     path("martor/", include("martor.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
