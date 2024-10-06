@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load martortags %}
+{% block content %}
+<div class="flex flex-col align-center p-5 mx-auto w-full">
+    <div class="flex">
+        <a href="{% url 'index' %}" class="text-white
+        "><</a>
+    </div>
+    {% if post %}
+        <div class="container rounded mb-5 p-5 prose prose-invert">
+            <p class="m-0 mb-3">{{ post.date_posted|date:"F d, Y" }}</p>
+            {{ post.content|safe_markdown }}
+        </div>
+    {% else %}
+        <div class="container prose">
+            <h1 class="text-white
+            ">No post found</h1>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
