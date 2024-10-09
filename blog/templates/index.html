@@ -2,11 +2,11 @@
 
 {% load martortags %}
 {% block content %}
-    <div class="flex justify-center p-5 mx-auto w-full">
+    <div class="flex flex-col p-5 mx-auto w-full">
         {% if posts %}
             {% for post in posts %}
                 <a href="{% url 'post' post.id %}"
-                    class="container rounded mb-5 p-5 prose prose-invert hover:bg-gray-700 cursor-pointer">
+                    class="container mx-auto rounded mb-5 p-5 prose prose-invert hover:bg-gray-700 cursor-pointer">
                     <p class="m-0 mb-1 text-sm">{{ post.date_posted|date:"F d, Y" }}</p>
                     <h2 class="m-0">{{ post.title }}</h2>
                 </a>
