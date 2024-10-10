@@ -25,8 +25,13 @@ SECRET_KEY = "django-insecure-oh@i0m-43i!oc2-xhopgl!84vr!-chv9t6fvx2zdki1!&t=qdu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5174",
+]
 
 # Application definition
 
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
     "tailwind",
     "theme",
     "django_browser_reload",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -53,6 +59,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "personalblog.urls"
@@ -128,4 +135,4 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-TAILWIND_APP_NAME = 'theme'
+TAILWIND_APP_NAME = "theme"
