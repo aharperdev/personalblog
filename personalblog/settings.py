@@ -31,7 +31,7 @@ ALLOWED_HOSTS = (
     DEBUG
     and ["*"]
     or [
-        ".aharper.codes",
+        "localhost",
     ]
 )
 

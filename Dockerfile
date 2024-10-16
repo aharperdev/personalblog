@@ -12,6 +12,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+RUN python manage.py tailwind install
+RUN python manage.py tailwind build
+
 RUN mkdir /static
 
 COPY ./entrypoint.sh /
