@@ -5,5 +5,5 @@ workers = 3
 worker_connections = 500
 threads = 3
 
-certfile = "/etc/letsencrypt/live/your_domain.com/fullchain.pem"
-keyfile = "/etc/letsencrypt/live/your_domain.com/privkey.pem"
+certfile = "/etc/letsencrypt/live/blog.aharper.codes/fullchain.pem"
+keyfile = "/etc/letsencrypt/live/blog.aharper.codes/privkey.pem"
