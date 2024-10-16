@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,15 +25,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-oh@i0m-43i!oc2-xhopgl!84vr!-chv9t6fvx2zdki1!&t=qdu"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get("DEBUG", default=1))
 
-ALLOWED_HOSTS = [
-    "localhost",
-]
+ALLOWED_HOSTS = (
+    DEBUG
+    and ["*"]
+    or [
+        ".aharper.codes",
+    ]
+)
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5174",
-]
+CORS_ALLOWED_ORIGIN_REGEXES = (
+    DEBUG
+    and [".*"]
+    or [
+        r".*\.aharper\.codes",
+    ]
+)
 
 # Application definition
 
@@ -129,6 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

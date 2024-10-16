@@ -1,0 +1,23 @@
+name: personalblog
+
+services:
+  web:
+    build: .
+    expose:
+      - 8000
+    volumes:
+      - static_volume:/app/static
+    restart: always
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - web
+    volumes:
+      - static_volume:/app/static
+    restart: always
+
+volumes:
+  static_volume:
